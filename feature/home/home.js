@@ -3,6 +3,7 @@ import { ScrollView, Text, TouchableOpacity, View, Animated } from "react-native
 import { styles } from "./homeStyle";
 import { setMessage } from "../../store/appSlices";
 import { connect } from "react-redux";
+import { getHome } from "../../Request/appRequest/getRequest";
 
 
 
@@ -62,7 +63,8 @@ export class Home extends Component {
                         <Text style={styles.navButtonText}>Register</Text> 
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.navButton} 
-                        onPress={() => this.props.setMessage("armenchik")}
+                        onPress={() => this.props.getHomeAsync()}
+                        // this.props.setMessage("armenchik")
                     > 
                         <Text style={styles.navButtonText}>Change Initial Message</Text> 
                     </TouchableOpacity>
@@ -79,5 +81,11 @@ export class Home extends Component {
 
 
 const mapStateToProps = (state) => (state);
+const mapDispatchToProps = (dispatch,state) => {
+    return {
+        setMessage: () => dispatch(setMessage()),
+        getHomeAsync: () => dispatch(getHome()),
+    }
+  }
 
-export default connect(mapStateToProps,{ setMessage })(Home);
+export default connect(mapStateToProps,mapDispatchToProps)(Home);
