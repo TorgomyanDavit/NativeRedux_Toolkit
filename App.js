@@ -9,6 +9,9 @@ import { store } from './store/store.js';
 import NavigateStack from './Navigation.js';
 
 
+
+
+
 export default function App({children}) {
 
   return (

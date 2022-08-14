@@ -42,7 +42,6 @@ export class Home extends Component {
             outputRange :  [ '0deg', '360deg' ]
         })
 
-        console.log(this.props);
         return (
             <ScrollView style={{flex:1}}>
                 <Text style={styles.title}>{title}</Text>
